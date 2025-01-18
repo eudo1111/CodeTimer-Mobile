@@ -1,2 +1,4 @@
 # CodeTimer-Mobile
-CodeTiimer - Mobile App (Android)
+CodeTimer - Mobile App
+
+For now, it will be only for Android OS.
