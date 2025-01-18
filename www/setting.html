@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CodeTimer</title>
+
+<meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data:">
+
+    <link href="lib/bootstrap/bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="lib/fontawesome/css/all.min.css" rel="stylesheet" />
+    <script src="lib/bootstrap/bootstrap-5.3.0-alpha3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <link href="style.css" rel="stylesheet"/>
+
+    <link href="lib/select2/dist/css/select2.min.css" rel="stylesheet"/>
+    <link href="lib/select2/select2-bootstrap-5-theme.min.css" rel="stylesheet"/>
+    <scrpt src="lib/select2/dist/js/select2.min.js"></scrpt>
+    <script src="lib/moment/moment.min.js"></script>
+
+  </head>
+  <body data-bs-theme="dark">
+    <!-- Modal -->     
+    <div class="modal modal-sm fade" id="loadingModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="text-end mx-2 my-1">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="loading fs-5 py-2">
+                        <span class="spinner-border spinner-border" role="status" aria-hidden="true"></span>
+                    </div>
+                    Loading...
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    
+
+    <div class="container">
+        <div class="header pt-4">
+            <div class="row">
+                <div class="col-6 col-md-8">
+                    <img src="icons/logo.png" class="logo" onclick="openHomepage()">
+                </div>
+                <div class="col-6 col-md-4 text-end">
+                    <a href="index.html" class="btn btn-sm btn-primary"><i class="fas fa-arrow-left-long"></i> <span class="d-none d-sm-inline-block">Back</span></a>
+                    <a href="#" class="btn btn-sm btn-primary" onclick="reloadCache();"><i class="fas fa-refresh"></i> <span class="d-none d-sm-inline-block">Cache</span></a>
+                    <a href="#" class="d-none btn btn-sm btn-success updateBtn" onclick="checkUpdate(1)"><i class="fas fa-arrow-up-right-from-square"></i> <span class="d-none d-sm-inline-block">Update</span><i class="update-dot text-danger fas fa-circle"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-3 p-1 pb-0 d-inline-block w-100">
+            <div class="row">
+                <div class="col-12 mb-2">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="host" placeholder="kimai.org" value="">
+                        <label for="host">Host</label>
+                    </div>
+                </div>
+                <div class="col-12 mb-2">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="username" placeholder="kimai.org" value="">
+                        <label for="username">Username</label>
+                    </div>
+                </div>
+                <div class="col-12 mb-2">
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="token" placeholder="kimai.org" value="">
+                        <label for="token">API Token</label>
+                    </div>
+                </div>
+                <br/><br/><br/><br/>
+                <div class="col-12 col-md-12 mb-2">
+                    <input type="hidden" name="use_only_token" value="0" />
+                    <input type="checkbox" name="use_only_token" value="1" id="use_only_token" />
+                    &nbsp;
+                    <label for="use_only_token">Use only token (allow for Kimai > v.2.20)</label>
+                </div>
+                <br/><br/>
+                <div class="row">
+                    <div class="col-6">
+                        <a href="#" class="btn btn-warning w-100" onclick="testConnection()">
+                            <i class="fas fa-satellite-dish"></i> Test
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="#" class="btn btn-primary w-100" onclick="saveSetting()">
+                            <i class="fas fa-save"></i> Save
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer text-center pt-2 py-2">
+        <div class="d-none">
+            v. <span class="app-version">0.0.0</span><br/>
+        </div>
+        &copy; 2025 Martin Lačný - Owly 
+    </div>
+
+    <script src="cordova.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/cache.js"></script>
+    <script src="js/API.js"></script>
+    <script src="js/setting.js"></script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+html,body{
+    margin: auto;
+    padding: 0px;
+    font-size: 14px;
+    overflow-y: auto;
+}
+.item-detail{
+    cursor: pointer;
+}
+.item-customer, .item-project, .item-activity{
+    font-size: 13px;
+}
+.logo{
+    cursor: pointer;
+    max-height: 50px;
+}
+#loadingModal .modal-dialog{
+    top: 50%;
+    transform: translateY(-50%) !important;
+}
+.update-dot{
+    font-size: 7px;
+    position: relative;
+    top: -5px;
+    margin-left: 3px;
+    display: none;
+}
+
+.footer{
+    font-size: 12px;
+}
+
+.stop-hover{
+    display: none;
+}
+.stop-btn:hover .stop-hover{
+    display: inline-block;
+}
+.stop-btn{
+    min-width: 115px;
+}
+.stop-btn:hover .stop-time{
+    display: none;
+}
+
+#desc.active{
+    cursor: pointer;
+}
+
+.select2-container--bootstrap-5 .select2-selection--single{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23dedede' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e") !important;
+}
+
+.select2-container--bootstrap-5 .select2-dropdown.select2-dropdown--above{
+    border: solid #fff 1px !important;
+}
+
+/* mobile fix*/
+.time input[type="text"],
+.date input[type="text"],
+.total input[type="text"],
+textarea#desc{
+    color: #fff !important;
+}

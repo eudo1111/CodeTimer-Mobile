@@ -1,0 +1,6 @@
+/node_modules
+/platforms
+package-lock.json
+
+/www/*/__*
+/www/__*
