@@ -9,3 +9,7 @@ If you enjoy my app, I appreciate if you buy me a coffee :)
 # Use HTTPS
 
 If you use Kimai as self hosted, you have to configure SSL (HTTPS). __App work only with HTTPS__.
+
+# Screenshots
+![Screenshot_1737222308](https://github.com/user-attachments/assets/af797736-c806-4723-b5c1-b601cfa15e93)
+![Screenshot_1737222390](https://github.com/user-attachments/assets/7a8c6de7-9b13-4958-a7de-04c647553973)
