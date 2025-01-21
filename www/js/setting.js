@@ -82,7 +82,7 @@ function saveSetting(){
         use_only_token: use_only_token,
     });
 
-    console.log('window.localStorage',window.localStorage);
+    //console.log('window.localStorage',window.localStorage);
     window.localStorage.setItem('setting', data )
     
     setting.host = host;
