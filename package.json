@@ -1,7 +1,7 @@
 {
   "name": "sk.owly.codetimermobile",
   "displayName": "CodeTimer Mobile",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CodeTimer for mobile. Simple APP for Kimai time tracking.",
   "main": "index.js",
   "scripts": {
