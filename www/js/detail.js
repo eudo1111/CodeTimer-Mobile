@@ -1,5 +1,13 @@
 var urlParams = new URLSearchParams(window.location.search);
 init().then(()=>{
+    
+    if(setting.host=="" || typeof(setting.host)==="undefined")
+    {
+        alert("You have to set API setting first!");
+        window.location.href="setting.html";
+        return false;
+    }
+
     if(urlParams.has('timesheet'))
     {
         itemId = urlParams.get('timesheet');
