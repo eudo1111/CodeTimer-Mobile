@@ -4,7 +4,7 @@ CodeTimer - Mobile App
 For now, it will be only for Android OS.
 
 ## What is CodeTimer?
-CodeTimer is simple small app to work with you Kimai software. You have to install Kimai app first to get CodeTimer working!
+CodeTimer is simple small app to work with your Kimai software. You have to install Kimai app first to get CodeTimer working!
 
 - More info about [Kimai](https://www.kimai.org/)
 - [CodeTimer desktop](https://github.com/owlysk/CodeTimer)
