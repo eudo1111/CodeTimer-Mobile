@@ -3,8 +3,11 @@ function testConnection(){
     var username = $('#username').val();
     var token = $('#token').val();
 
+    var use_only_token = 0;
+    if($('#use_only_token').prop('checked')) use_only_token=1;
+
     api = new API()
-    api.setCredentials(host,username,token)
+    api.setCredentials(host,username,token,use_only_token)
     result = api.testConnection()
 
     if(result!="")

@@ -26,7 +26,7 @@ class API{
         this.host = host;
         this.username = username;
         this.token = token;
-        this.use_only_token = setting.use_only_token;
+        this.use_only_token = use_only_token;
     }
 
     
