@@ -1,6 +1,7 @@
 /node_modules
 /platforms
 package-lock.json
+/build_scripts
 
 /www/*/__*
 /www/__*
