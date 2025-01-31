@@ -41,10 +41,10 @@ async function refreshCache(){
 function reloadCache(){
     refreshCache().then(()=>{
         //Neutralino.os.showMessageBox("Setting", "Cache refreshed!")
-        navigator.notification.prompt("Cache refreshed!");
+        navigator.notification.alert("Cache refreshed!");
     }).catch(()=>{
         //Neutralino.os.showMessageBox("Setting", "Cache refresh failed!")
-        navigator.notification.prompt("Cache refresh failed!");
+        navigator.notification.alert("Cache refresh failed!");
     });
 }
 
