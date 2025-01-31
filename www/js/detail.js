@@ -21,6 +21,12 @@ init().then(()=>{
     
 });
 
+$(document).ready(function(){
+    
+    
+});
+
+
 function loadItem(){
     var api = new API();
     api.makeAPICallAsync("get","/api/timesheets/"+itemId).then((item)=>{
@@ -266,4 +272,8 @@ function renderCallbacksForSelects(){
 $(document).on('select2:open', () => {
     let allFound = document.querySelectorAll('.select2-container--open .select2-search__field');
     allFound[allFound.length - 1].focus();
+});
+
+$(function(){
+    $('select').select2();
 });
