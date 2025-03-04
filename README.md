@@ -13,9 +13,7 @@ CodeTimer is simple small app to work with your Kimai software. You have to inst
 
 You can try CodeTimer with Kimai [DEMO](https://www.kimai.org/en/demo.html):
 - Host : `https://demo.kimai.org`
-- Username : `john_user`
 - API token :  `token_user`
-- Use only token: &#9745;
 
 If you enjoy my app, I appreciate if you buy me a coffee :)  
 
