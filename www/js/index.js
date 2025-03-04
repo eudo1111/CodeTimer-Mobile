@@ -4,8 +4,7 @@ init().then(()=>{
     if(debug) console.log('starting load elements')
 })
 .then(()=>{
-    loadItems();    
-    loadActive();
+    refreshHomepage();
 })
 
 
@@ -18,6 +17,10 @@ async function loadItems(){
     
 }
 
+async function refreshHomepage(){
+    loadItems();
+    loadActive();
+}
 
 async function loadActive(){
 
@@ -27,6 +30,11 @@ async function loadActive(){
         {
             activeItemId = activeItemArr[0].id;
             renderActive(activeItemArr[0]);
+        }
+        else 
+        {
+            activeItemId=0;
+            renderInactive();
         }
     });
     
