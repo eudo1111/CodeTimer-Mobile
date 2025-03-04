@@ -1,13 +1,11 @@
 function testConnection(){
     var host = $('#host').val();
-    var username = $('#username').val();
     var token = $('#token').val();
 
-    var use_only_token = 0;
-    if($('#use_only_token').prop('checked')) use_only_token=1;
+    if(host.indexOf('/api')!==-1) host = host.replace('/api','');
 
     api = new API()
-    api.setCredentials(host,username,token,use_only_token)
+    api.setCredentials(host,token)
     result = api.testConnection()
 
     if(result!="")
@@ -29,7 +27,6 @@ function testConnection(){
 function renderSettings(){
     loadSettings().then(function(setting){
         $('#host').val(setting.host);
-        $('#username').val(setting.username);
         $('#token').val(setting.token);
 
         if(typeof(setting.min_tray)!=="undefined")
@@ -42,11 +39,6 @@ function renderSettings(){
             if(setting.always_top==1) $('#always_top').prop('checked',true);
             else $('#always_top').prop('checked',false);
         }
-        if(typeof(setting.use_only_token)!=="undefined")
-        {
-            if(setting.use_only_token==1) $('#use_only_token').prop('checked',true);
-            else $('#use_only_token').prop('checked',false);
-        } 
 
     }).catch(function(error){
         if(debug) console.log('error',error)
@@ -61,39 +53,33 @@ function saveSetting(){
     //openLoadingDialog();
 
     var host = $('#host').val();
-    var username = $('#username').val();
     var token = $('#token').val();
+
+    if(host.indexOf('/api')!==-1) host = host.replace('/api','');
 
     var min_tray = 0;
     if($('#min_tray').prop('checked')) min_tray=1;
 
     var always_top = 0;
     if($('#always_top').prop('checked')) always_top=1;
-
-    var use_only_token = 0;
-    if($('#use_only_token').prop('checked')) use_only_token=1;
     
     api = new API()
-    api.setCredentials(host,username,token, use_only_token)
+    api.setCredentials(host,token)
     
     let data = JSON.stringify({
         host: host,
-        username: username,
         token: token,
         min_tray: min_tray,
         always_top: always_top,
-        use_only_token: use_only_token,
     });
 
     //console.log('window.localStorage',window.localStorage);
     window.localStorage.setItem('setting', data )
     
     setting.host = host;
-    setting.username = username;
     setting.token = token;
     setting.min_tray = min_tray;
     setting.always_top = always_top;
-    setting.use_only_token = use_only_token;
     refreshCache();
 
     //Neutralino.os.showMessageBox("Setting", "Settings saved!")

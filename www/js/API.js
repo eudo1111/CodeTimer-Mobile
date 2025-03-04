@@ -5,16 +5,12 @@ class API{
 
     loadCredentials(){
         this.host = "";
-        this.username = "";
         this.token = "";
-        this.use_only_token = "";
 
         if(setting)
         {
             this.host = setting.host;
-            this.username = setting.username;
             this.token = setting.token;
-            this.use_only_token = setting.use_only_token;
         }
         else 
         {
@@ -22,11 +18,9 @@ class API{
         }
     }
     
-    setCredentials(host,username,token,use_only_token){
+    setCredentials(host,token){
         this.host = host;
-        this.username = username;
         this.token = token;
-        this.use_only_token = use_only_token;
     }
 
     
@@ -34,20 +28,9 @@ class API{
         if(this.host=="") return false;
 
         var result = {};
-        var headers= {};
-        if(this.use_only_token)
-        {
-            headers = {
-                'Authorization': 'Bearer ' + this.token,
-            };
-        }
-        else
-        {
-            headers= {
-                'X-AUTH-USER': this.username,
-                'X-AUTH-TOKEN': this.token,
-            };
-        }
+        var headers = {
+            'Authorization': 'Bearer ' + this.token,
+        };
 
         $.ajax({
             async: false,
@@ -74,20 +57,9 @@ class API{
 
         var result = {};
 
-        var headers= {};
-        if(this.use_only_token)
-        {
-            headers = {
-                'Authorization': 'Bearer ' + this.token,
-            };
-        }
-        else
-        {
-            headers= {
-                'X-AUTH-USER': this.username,
-                'X-AUTH-TOKEN': this.token,
-            };
-        }
+        var headers = {
+            'Authorization': 'Bearer ' + this.token,
+        };
 
         $.ajax({
             async: false,
