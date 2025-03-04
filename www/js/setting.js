@@ -4,9 +4,7 @@ function testConnection(){
 
     if(host.indexOf('/api')!==-1) host = host.replace('/api','');
 
-    api = new API()
-    api.setCredentials(host,token)
-    result = api.testConnection()
+    var result = checkConnection(host,token);
 
     if(result!="")
     {
@@ -19,6 +17,13 @@ function testConnection(){
         navigator.notification.alert("Connection is invalid\nError: " + result);
     }
 
+    return result;
+}
+
+function checkConnection(host, token){
+    var api = new API();
+    api.setCredentials(host,token);
+    var result = api.testConnection();
     return result;
 }
 
@@ -84,6 +89,9 @@ function saveSetting(){
 
     //Neutralino.os.showMessageBox("Setting", "Settings saved!")
     navigator.notification.alert("Settings saved!");
+
+    var checkResult = checkConnection(host,token);
+    if(checkResult != "") window.location.href='index.html';
     
     //closeLoadingDialog();
 
