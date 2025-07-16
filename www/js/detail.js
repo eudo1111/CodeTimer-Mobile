@@ -184,14 +184,19 @@ function deleteItem(){
 
 function saveItem(){
 
-    openLoadingDialog();
+    //openLoadingDialog();
+
+    var error=0;
 
     if(typeof(itemId)!=="undefined")
     {
         
         data = {};    
-        var dateString = $('#date').val()+' '+$('#time_from').val();
-        data.begin = moment(dateString, "DD.MM.YYYY HH:mm:ss").format()
+        if($('#date').val()!="")
+        {
+            var dateString = $('#date').val()+' '+$('#time_from').val();
+            data.begin = moment(dateString, "DD.MM.YYYY HH:mm:ss").format()
+        }
 
         if(!urlParams.has('active'))
         {
@@ -206,14 +211,20 @@ function saveItem(){
 
         var api = new API();
         var resp = api.makeAPICall("patch","/api/timesheets/"+itemId, data)
-        if(debug) console.log('api Response',resp)
+        if(typeof(resp.errors)!=="undefined") error = 1;
+        if(debug) console.log('api Send',JSON.stringify(data))
+        if(debug) console.log('api Response',JSON.stringify(resp))
         
     }
     else
     {
         data = {};    
-        var dateString = $('#date').val()+' '+$('#time_from').val();
-        data.begin = moment(dateString, "DD.MM.YYYY HH:mm:ss").format()
+        if($('#date').val()!="")
+        {
+            var dateString = $('#date').val()+' '+$('#time_from').val();
+            data.begin = moment(dateString, "DD.MM.YYYY HH:mm:ss").format()
+        }
+        
 
         data.description = $('#desc').val()
         data.project = $('#projectSelect').val()
@@ -221,12 +232,25 @@ function saveItem(){
 
         var api = new API();
         var resp = api.makeAPICall("post","/api/timesheets", data)
-        if(debug) console.log('api Response',resp)
+        if(typeof(resp.errors)!=="undefined") error = 1;
+        if(debug) console.log('api Send',JSON.stringify(data))
+        if(debug) console.log('api Response',JSON.stringify(resp))
     }
 
-    closeLoadingDialog();
+    //closeLoadingDialog();
 
-    window.location.href='index.html';
+    if(error)
+    {
+        alert(resp.message + "\n" + JSON.stringify(resp.error));
+        setTimeout(function(){
+            closeLoadingDialog();
+        },250);
+    }
+    else 
+    {
+        openLoadingDialog();
+        window.location.href='index.html';
+    }
 
 }
 

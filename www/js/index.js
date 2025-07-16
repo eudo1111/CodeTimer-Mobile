@@ -61,6 +61,13 @@ async function stopItem(){
     if(activeItemId > 0)
     {
         await api.makeAPICallAsync("patch","/api/timesheets/"+activeItemId+"/stop")
+        .then(function(resp){
+            if(typeof(resp.id)==="undefined")
+            {
+                if(debug) console.log('api stop', JSON.stringify(resp))
+                if(debug_alert) alert('DEBUG' + '\n' + JSON.stringify(resp));
+            }
+        });
         renderInactive();
         clearInterval(timerDuration);
         await loadItems()
@@ -76,19 +83,25 @@ function repeatItem(itemId){
     {
         if(debug) console.log('repeatItem', item);
         activeItemId = item.id
-        renderActive(item)
-        window.scrollY(0);
+        renderActive(item);
+        window.scroll({top:0});
+    }
+    else
+    {
+        if(debug) console.log('repeat Item response', JSON.stringify(item));
+        if(debug_alert) alert('DEBUG' + '\n' + JSON.stringify(item));
     }
 
 }
 
 function renderInactive(){
     $('#desc').val('');
-    $('#desc').removeAttr('readonly');
+    if(typeof($('#desc').attr('readonly'))!=="undefined") $('#desc').removeAttr('readonly');
     $('.start-btn').removeClass('d-none');
     $('.stop-btn').addClass('d-none');
     $('.stop-time').text('00:00:00');
-    $('#desc').removeAttr('onclick');
+    if(typeof($('#desc').attr('onclick'))!=="undefined") $('#desc').removeAttr('onclick');
+    if(typeof($('#desc').attr('ontouchstart'))!=="undefined") $('#desc').removeAttr('ontouchstart');
     $('#desc').removeClass('active');
 }
 

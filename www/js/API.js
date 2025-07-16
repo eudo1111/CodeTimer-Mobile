@@ -44,7 +44,10 @@ class API{
                 result = resp;
             },
             error: function(xhr, status, error){
-                console.log(JSON.stringify(xhr),JSON.stringify(error));
+                //console.log('API Async error1',JSON.stringify(xhr));
+                //console.log('API Async error2',JSON.stringify(error));
+                if(typeof(xhr.responseJSON)!=="undefined") result = xhr.responseJSON;
+                //if(typeof(xhr)!=="undefined") result = xhr;
             }
         }).then(function(){
             result = ''
@@ -73,7 +76,11 @@ class API{
                 result = resp;
             },
             error: function(xhr, status, error){
-                console.log(JSON.stringify(xhr),JSON.stringify(error));
+                //console.log('API error1',JSON.stringify(xhr));
+                //console.log('API error2',JSON.stringify(error));
+                if(typeof(xhr.responseJSON)!=="undefined") result = xhr.responseJSON;
+
+                //console.log('API result',result);
             }
         }).then(function(){
             result = ''

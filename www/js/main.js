@@ -1,4 +1,5 @@
 var debug = false;
+var debug_alert = false;
 
 async function loadSettings(){
     settingJSON = window.localStorage.getItem('setting');

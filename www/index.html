@@ -60,7 +60,7 @@
                             <a href="#" class="btn  btn-primary d-inline-block start-btn px-4" onclick="window.location.href='/detail.html?description='+encodeURIComponent($('#desc').val());">
                                 <i class="fas fa-play"></i> Start
                             </a>
-                            <a href="#" class="d-none btn btn-danger d-inline-block stop-btn px-4" onclick="stopItem()">
+                            <a href="#" class="d-none btn btn-danger d-inline-block stop-btn px-4" onclick="stopItem();return false;" ontouchstart="stopItem();return false;">
                                 <i class="fas fa-stop"></i> <span class="stop-hover">Stop</span><span class="stop-time">00:00:00</span>
                             </a>
                         </div>
