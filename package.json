@@ -1,6 +1,6 @@
 {
   "name": "sk.owly.codetimermobile",
-  "version": "1.1.2",
+  "version": "2.0.0",
   "description": "CodeTimer for mobile. Simple APP for Kimai time tracking.",
   "keywords": [
     "ecosystem:cordova",
@@ -11,34 +11,36 @@
     "Owly",
     "Martin Lačný"
   ],
-  "homepage": "https://github.com/eudo1111/CodeTimer-Mobile#readme",
+  "homepage": "https://github.com/owlysk/CodeTimer-Mobile#readme",
   "bugs": {
-    "url": "https://github.com/eudo1111/CodeTimer-Mobile/issues"
+    "url": "https://github.com/owlysk/CodeTimer-Mobile/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eudo1111/CodeTimer-Mobile.git"
+    "url": "git+https://github.com/owlysk/CodeTimer-Mobile.git"
   },
   "license": "Apache-2.0",
   "author": "Martin Lačný - Owly",
   "type": "commonjs",
   "main": "index.js",
-"scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "prepare": "cordova prepare",
-  "serve-browser": "cordova run browser --live-reload",
-  "run-android": "cordova run android"
-},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "cordova prepare",
+    "serve-browser": "cordova run browser --live-reload",
+    "run-android": "cordova run android"
+  },
   "devDependencies": {
     "cordova-android": "^13.0.0",
     "cordova-browser": "^7.0.0",
+    "cordova-ios": "^7.1.1",
     "cordova-plugin-dialogs": "^2.0.2"
   },
   "displayName": "CodeTimer Mobile",
   "cordova": {
     "platforms": [
       "browser",
-      "android"
+      "android",
+      "ios"
     ],
     "plugins": {
       "cordova-plugin-dialogs": {}
